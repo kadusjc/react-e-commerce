@@ -1,0 +1,28 @@
+/* styles.css */
+
+/* Estilos personalizados */
+.container {
+  margin-top: 20px;
+}
+
+.active {
+  font-weight: bold;
+}
+
+/* Estilos para o modal */
+#modal-root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos para a página 404 */
+.alert {
+  margin-top: 20px;
+}
