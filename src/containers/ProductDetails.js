@@ -1,23 +1,33 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Card } from 'react-bootstrap';
+import { useParams } from 'react-router-dom'
 
-const ProductDetails = ({ match }) => {
-  const productId = match.params.id;
-  const product = useSelector((state) => state.products.find((p) => p.id === productId));
+const ProductDetails = () => {
+  const { productId } = useParams()
+
+  let product = null
+  const products = useSelector((state) => state.products.products)
+  if (productId) product = products.find((p) => p.id.toString() === productId);
+  
 
   if (!product) {
-    return <div>Product not found.</div>;
+    return <div>Produto nao encontrado.</div>;
   }
 
   return (
-    <div>
-      <h2>Product Details</h2>
-      <Card>
+    <div align="center">
+      <h2>Detalhes do Produto Id {product.id}</h2>
+      
+      <Card className="card-medium card-details"  bg="red"> 
+        <Card.Img variant="top" src={product.image} />
         <Card.Body>
-          <Card.Title>{product.name}</Card.Title>
-          <Card.Text>{product.description}</Card.Text>
-          <Card.Text>Price: ${product.price}</Card.Text>
+          <Card.Title>
+            <Card.Link href={product.url} target='_blank'>{product.name}</Card.Link>
+          </Card.Title>
+          <Card.Text>Descrição: {product.description}</Card.Text>
+          <Card.Text>Preço: ${product.price}</Card.Text>
+          
         </Card.Body>
       </Card>
     </div>

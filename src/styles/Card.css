@@ -1,0 +1,15 @@
+.card-small {
+    margin: 10px;
+    padding: 10px;
+    height: 270px;
+  }
+
+  .card-img-top {
+    width: 400px;
+    height: 400px;
+  }
+
+  .card-details {
+    align-items: center;
+    width: 400px;
+  }

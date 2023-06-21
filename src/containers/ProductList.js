@@ -1,16 +1,18 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import ProductItem from '../components/ProductItem';
+import { useSelector } from 'react-redux';
 
 const ProductList = () => {
-  const products = useSelector((state) => state.products);
-
+  const listaProdutos = useSelector((state) => state.products.products);
+  
   return (
     <div>
-      <h1>Lista de Produtos</h1>
-      {products.map((product) => (
-        <ProductItem key={product.id} product={product} />
+      <div className="row" align="center"><h1>Lista de Produtos</h1></div>
+      <div className="row">
+      {listaProdutos && listaProdutos.map((product) => (
+        <div className="col-md-3"><ProductItem key={product.id} product={product} /></div>
       ))}
+      </div>
     </div>
   );
 };
