@@ -18,15 +18,13 @@ const CartItem = ({ item }) => {
         <p>Seu carrinho está Vazio.</p>
       ) : (
         <ListGroup>
-          {cartItems.map((item) => (
             <ListGroup.Item key={item.id}>
               {item.name} - ${item.price}
               <Button variant="danger" style={{margin: '10px'}} onClick={() => handleRemoveFromCart(item.id)}>
                 <CartX/>&nbsp;Remover&nbsp;
               </Button>
             </ListGroup.Item>
-          ))}
-        </ListGroup>
+         </ListGroup>
       )}
     </div>
   );
