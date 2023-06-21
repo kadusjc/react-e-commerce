@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 const NavBar = () => {
   const user = useSelector((state) => state.user);
-  alert('User '+ user)
+  
   return (
     <Navbar bg="light" expand="lg">
       <Navbar.Brand as={Link} to="/">React Bootstrap Store</Navbar.Brand>
