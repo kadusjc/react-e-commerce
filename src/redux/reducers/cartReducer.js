@@ -1,4 +1,5 @@
 import { ADD_TO_CART, REMOVE_FROM_CART } from '../actions/types';
+import _ from 'lodash'
 
 const initialState = {
   cartItems: [],

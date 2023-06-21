@@ -8,7 +8,9 @@ const Home = () => {
         <Card.Title>Seja muito bem-vindo ao  React Bootstrap Store</Card.Title>
         <Card.Text>
           Este é um exemplo bem simples de uma loja e-commerce construído com React, Redux e React Bootstrap.
-          Sinta-se a vontade para explorar nossos produtos e adicioná-los no carrinho, aprecie sua experiência de compras.
+          <br/>Sinta-se a vontade para explorar nossos produtos e adicioná-los no carrinho, aprecie sua experiência de compras.
+          <br/><br/>
+          Faça o Login, com qualquer informação, para começar sua experiência
         </Card.Text>
       </Card.Body>
     </Card>

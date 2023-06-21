@@ -20,6 +20,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   const doLogin = (data) => {
+    data.lastLogin = new Date()
     dispatch(setUser(data))
   }
   
@@ -28,9 +29,15 @@ const App = () => {
       <div>
         { user && user.name &&  
           <Alert key="success" variant="success">
-            Você está logado na loja. Agora pode acessar o menu "Perfil do Usuário".
+            Você está logado na loja. Agora pode acessar o menu "Perfil do Usuário" e "Adicionar Produtos ao Carrinho".
           </Alert>
         }
+
+        {!user && 
+        <Alert key="warning" variant="warning">
+          Faça o seu Login primeiro 
+        </Alert>
+       }
         <Navbar userData={{ ...user}}/>
         <div className="container">
           <div className="row">

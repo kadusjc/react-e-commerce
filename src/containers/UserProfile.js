@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment'
 import { Card } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
@@ -13,6 +14,7 @@ const UserProfile = () => {
           <Card.Body>
             <Card.Title>Nome</Card.Title><Card.Text>{userProfile.name}</Card.Text>
             <Card.Title>E-mail</Card.Title><Card.Text>{userProfile.email}</Card.Text>
+            <Card.Title>Último Login</Card.Title><Card.Text>{moment(userProfile.lastLogin).format('DD/MM/YYYY HH:mm:ss')}</Card.Text>
           </Card.Body>
         </Card>  
       ) : (
