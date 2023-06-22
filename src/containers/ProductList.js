@@ -10,7 +10,9 @@ const ProductList = () => {
       <div className="row" align="center"><h1>Lista de Produtos</h1></div>
       <div className="row">
       {listaProdutos && listaProdutos.map((product) => (
-        <div className="col-md-3"><ProductItem key={product.id} product={product} /></div>
+        <React.Fragment key={product.id}>
+          <div className="col-md-3"><ProductItem  product={product} /></div>
+        </React.Fragment>
       ))}
       </div>
     </div>

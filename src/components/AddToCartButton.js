@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { addToCart } from '../redux/actions/cartActions';
 import { CartPlusFill } from "react-bootstrap-icons";
 
-const AddToCart = ({ product }) => {
+const AddToCartButton = ({ product }) => {
   const userProfile = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
   const navigate = useNavigate()
@@ -27,4 +27,4 @@ const AddToCart = ({ product }) => {
   );
 };
 
-export default AddToCart;
+export default AddToCartButton;

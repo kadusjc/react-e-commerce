@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Card } from 'react-bootstrap';
 import { useParams } from 'react-router-dom'
 
-import AddToCart from '../components/AddToCart'
+import AddToCartButton from '../components/AddToCartButton'
 
 const ProductDetails = () => {
   const { productId } = useParams()
@@ -27,7 +27,7 @@ const ProductDetails = () => {
           </Card.Title>
           <Card.Text>Descrição: {product.description}</Card.Text>
           <Card.Text>Preço: ${product.price}</Card.Text>
-          <AddToCart product={product}/>
+          <AddToCartButton product={product}/>
         </Card.Body>
       </Card>
     </div>

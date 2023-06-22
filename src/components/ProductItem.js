@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Card, Button } from 'react-bootstrap';
 
 import '../styles/Card.css'
-import AddToCart from './AddToCart';
+import AddToCartButton from './AddToCartButton';
 
 const ProductItem = ({ product }) => {
  
@@ -16,7 +16,7 @@ const ProductItem = ({ product }) => {
         <Link to={`/produtos/${product.id}`}>
           <Button style={{margin: '2px'}} variant="primary">Detalhes</Button>
         </Link>
-        <AddToCart product={product}/>
+        <AddToCartButton product={product}/>
       </Card.Body>
     </Card>
   );

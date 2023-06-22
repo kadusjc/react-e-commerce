@@ -20,7 +20,6 @@ const App = () => {
   const dispatch = useDispatch();
 
   const doLogin = (data) => {
-    data.lastLogin = new Date()
     dispatch(setUser(data))
   }
   
