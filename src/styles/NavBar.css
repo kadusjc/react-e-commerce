@@ -6,3 +6,10 @@
     width: 100%;
     align-items: center;
   }
+
+  .currency {
+    font-size: 12px;
+    color: darkgreen;
+    padding-left: 100px;
+    padding-right: 100px;
+  }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Alert } from 'react-bootstrap';
 
@@ -13,11 +13,19 @@ import NotFound from './containers/NotFound';
 import { useSelector, useDispatch } from 'react-redux';
 import { setUser } from './redux/actions/userActions';
 import UserProfile from './containers/UserProfile';
+import QuotationApi from './service/quotation-api';
 
 const App = () => {
 
+  const [quotation, setQuotation] = useState();
   const user = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    QuotationApi.get("/")
+      .then((response) => setQuotation(response.data))
+      .catch((err) => { console.error("Ocorreu um erro ao consumir a API de cotação de moedas: " + err) })
+  }, []);
 
   const doLogin = (data) => {
     dispatch(setUser(data))
@@ -37,7 +45,7 @@ const App = () => {
           Faça o seu Login primeiro 
         </Alert>
        }
-        <Navbar userData={{ ...user}}/>
+        <Navbar userData={{ ...user}} quotation={{...quotation}}/>
         <div className="container">
           <div className="row">
             <div>

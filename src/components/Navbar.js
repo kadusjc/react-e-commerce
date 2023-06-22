@@ -6,7 +6,7 @@ import { Cart, FileLock2Fill, Gift, DoorClosed, PersonFill } from "react-bootstr
 
 import '../styles/NavBar.css'
 
-const NavBar = ({ userData }) => {
+const NavBar = ({ userData, quotation }) => {
   return (
     <Navbar bg="light" expand="lg" align="center">
       <Navbar.Brand as={Link} to="/">Loja React Bootstrap</Navbar.Brand>
@@ -19,6 +19,7 @@ const NavBar = ({ userData }) => {
           <Nav.Link as={Link} to="/login"><PersonFill/>&nbsp;Login&nbsp;</Nav.Link>
           { userData && userData.name && <Nav.Link as={Link} to="/userProfile"><FileLock2Fill/>&nbsp;Perfil do Usuário &nbsp;</Nav.Link> }
         </Nav>
+        <span className="currency"><strong>Dólar: </strong> R$ { quotation && quotation.USDBRL && quotation.USDBRL.high }  &nbsp; <strong>Euro:</strong> R$ { quotation && quotation.EURBRL && quotation.EURBRL.high }</span>
         &nbsp;&nbsp;&nbsp;  <strong>Livro Guia Definitivo para desenvolvedores Front-End</strong>
       </Navbar.Collapse>
       
