@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 
@@ -12,16 +12,17 @@ describe('CartItem', () => {
   const mockProduct = { id: 1, name: 'Example Product', price: 10.99, qty: 2 };
   
   beforeEach(() => {
-   store = mockStore({ cart: { cartItems: [] } })
+    store = mockStore({ cart: { cartItems: [] } })
   });
 
   it('should render the component correctly with message "Seu Carrinho está vazio"', () => {
-    const wrapper = shallow(<Provider store={store}><CartItem /></Provider>)
-    expect(wrapper.html()).toBe('<div><p>Seu carrinho está Vazio.</p></div>')
+    const wrapper = render(<Provider store={store}><CartItem /></Provider>)
+    expect(wrapper.text()).toBe('Seu carrinho está Vazio.')
   })
 
-  it.skip('should render the Cart Item component HTML code correctly', () => {
-    const wrapper = shallow(<Provider store={store}><CartItem item={mockProduct} /></Provider>)
-    expect(wrapper.find('div').text()).toContain('text to check')
+  it('should render the Cart Item with one item when code correctly when cartItems is not empty', () => {
+    store = mockStore({ cart: { cartItems: [ mockProduct ] } })
+    const wrapper = render(<Provider store={store}><CartItem item={mockProduct} /></Provider>)
+    expect(wrapper.text()).toContain('Nome Example Product - Preço $10.99 - Qtd 2   Remover')
   })
 });
