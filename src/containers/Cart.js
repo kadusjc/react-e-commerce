@@ -10,7 +10,7 @@ const Cart = () => {
     <div>
       <h1>Carrinho de Compras</h1>
       {cartItems.length === 0 ? (
-        <p>O carrinho está vazio.</p>
+        <p>&nbsp;O carrinho está vazio.</p>
       ) : (
         cartItems.map((item) => <CartItem key={item.id} item={item} />)
       )}

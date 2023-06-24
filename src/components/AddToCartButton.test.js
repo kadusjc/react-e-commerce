@@ -6,7 +6,6 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from "react-router-dom";
 
 import AddToCartButton from './AddToCartButton';
-import { addToCart } from '../redux/actions/cartActions';
 
 const mockStore = configureStore([]);
 

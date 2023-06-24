@@ -11,8 +11,8 @@ const UserProfile = () => {
       {userProfile && userProfile.name ? (
         <Card>
           <Card.Body>
-            <Card.Title>Nome</Card.Title><Card.Text>{userProfile.name}</Card.Text>
-            <Card.Title>E-mail</Card.Title><Card.Text>{userProfile.email}</Card.Text>
+            <Card.Title>&nbsp;Nome</Card.Title><Card.Text>&nbsp;{userProfile.name}</Card.Text>
+            <Card.Title>&nbsp;E-mail</Card.Title><Card.Text>&nbsp;{userProfile.email}</Card.Text>
           </Card.Body>
         </Card>  
       ) : (
