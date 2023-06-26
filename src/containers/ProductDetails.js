@@ -6,9 +6,9 @@ import { useParams } from 'react-router-dom'
 import AddToCartButton from '../components/AddToCartButton'
 
 const ProductDetails = () => {
-  const { productId } = useParams()
-  console.log('PRODUCT ID '+ productId)
   let product = null
+
+  const { productId } = useParams()
   const products = useSelector((state) => state.products.products)
   if (productId) product = products.find((p) => p.id.toString() === productId);
   
