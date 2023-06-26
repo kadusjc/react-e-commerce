@@ -19,6 +19,7 @@ const Login = ({ onLogin }) => {
         <Form.Group controlId="username">
           <Form.Label>Username</Form.Label>
           <Form.Control
+            className="userName"
             type="text"
             placeholder="Enter username"
             value={name}
@@ -46,7 +47,7 @@ const Login = ({ onLogin }) => {
           />
         </Form.Group>
         <br/>
-        <Button variant="primary" type="submit">
+        <Button className="btn" variant="primary" type="submit">
           Login
         </Button>
       </Form>
