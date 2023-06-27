@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'enzyme';
+import { render } from '@testing-library/react';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 
@@ -22,14 +22,14 @@ describe('ProductDetails', () => {
   });
 
   it('should render the ProductDetails component correctly with message "Produto nao encontrado"', () => {
-    const wrapper = render(<Provider store={store}><ProductDetails /></Provider>)
-    expect(wrapper.text()).toBe('Produto nao encontrado.')
+    const { container } = render(<Provider store={store}><ProductDetails /></Provider>)
+    expect(container.textContent).toBe('Produto nao encontrado.')
   })
 
   it('should render the ProductDetails component Item correctly displaying Product Details of product id = 13', () => {
     store = mockStore({ products: { products: mockProduct }, user: { user: [] }  })
-    const wrapper = render(<Provider store={store}><BrowserRouter><ProductDetails /></BrowserRouter></Provider>)
-    expect(wrapper.text()).toContain('Detalhes do Produto Id 13Example ProductDescrição: Preço: $10.99')
+    const { container } = render(<Provider store={store}><BrowserRouter><ProductDetails /></BrowserRouter></Provider>)
+    expect(container.textContent).toContain('Detalhes do Produto Id 13Example ProductDescrição: Preço: $10.99')
   })
 
 });

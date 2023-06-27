@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'enzyme';
+import { render } from '@testing-library/react';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 
@@ -16,13 +16,13 @@ describe('Cart', () => {
   });
 
   it('should render the Cart component correctly with message "Seu Carrinho está vazio"', () => {
-    const wrapper = render(<Provider store={store}><Cart /></Provider>)
-    expect(wrapper.text()).toBe('Carrinho de Compras O carrinho está vazio.')
+    const { container } = render(<Provider store={store}><Cart /></Provider>)
+    expect(container.textContent).toBe('Carrinho de Compras O carrinho está vazio.')
   })
 
   it('should render the Cart component Item correctly when cart has 1 or more items', () => {
     store = mockStore({ cart: { cartItems: [ mockProduct ] } })
-    const wrapper = render(<Provider store={store}><Cart /></Provider>)
-    expect(wrapper.text()).toContain('Carrinho de ComprasNome Example Product - Preço $10.99 - Qtd 2   Remover ')
+    const { container } = render(<Provider store={store}><Cart /></Provider>)
+    expect(container.textContent).toContain('Carrinho de ComprasNome Example Product - Preço $10.99 - Qtd 2   Remover ')
   })
 });

@@ -1,5 +1,6 @@
 import React from 'react';
-import { render } from 'enzyme';
+import { render } from '@testing-library/react';
+
 import Navbar from './Navbar';
 import { BrowserRouter } from "react-router-dom";
 
@@ -13,13 +14,13 @@ describe('NavBar ', () => {
   });
 
   it('should NOT display "Cart" menu item neither "User Profile" until user does the login', () => {
-    const wrapper = render(<BrowserRouter><Navbar/></BrowserRouter>)
-    expect(wrapper.text()).toBe('Loja React Bootstrap Home  Produtos  Login      Livro Guia Definitivo para desenvolvedores Front-End')
+    const { container } = render(<BrowserRouter><Navbar/></BrowserRouter>)
+    expect(container.textContent).toBe('Loja React Bootstrap Home  Produtos  Login      Livro Guia Definitivo para desenvolvedores Front-End')
   })
 
   it('should display "Cart" menu item and "User Profile" when user is logged', () => {
-    const wrapper = render(<BrowserRouter><Navbar userData={mockUserProfile} quotation={mockQuotation} /></BrowserRouter>)
-    expect(wrapper.text()).toBe('Loja React Bootstrap Home  Produtos  Carrinho  Login  Perfil do Usuário  Dólar:  R$ 4.91    Euro: R$ 5.4     Livro Guia Definitivo para desenvolvedores Front-End')
+    const { container } = render(<BrowserRouter><Navbar userData={mockUserProfile} quotation={mockQuotation} /></BrowserRouter>)
+    expect(container.textContent).toBe('Loja React Bootstrap Home  Produtos  Carrinho  Login  Perfil do Usuário  Dólar:  R$ 4.91    Euro: R$ 5.4     Livro Guia Definitivo para desenvolvedores Front-End')
   })
 
 });

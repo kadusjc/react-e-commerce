@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'enzyme';
+import { render } from '@testing-library/react';
 
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
@@ -20,8 +20,8 @@ describe('ProductItem', () => {
   });  
   
   it('should render the component displaying product informations correctly with a detail link using Product Id ', () => {
-    const wrapper = render(<Provider store={store}><BrowserRouter><ProductItem product={mockProduct} /></BrowserRouter></Provider>)
-    expect(wrapper.text()).toBe(' Id: 10 Camisa GG - Chapolin Detalhes')
+    const { container } = render(<Provider store={store}><BrowserRouter><ProductItem product={mockProduct} /></BrowserRouter></Provider>)
+    expect(container.textContent).toBe(' Id: 10 Camisa GG - Chapolin Detalhes')
   })
 
   

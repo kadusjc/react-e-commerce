@@ -1,9 +1,8 @@
 import React from 'react';
-import { render } from 'enzyme';
+import { render } from '@testing-library/react';
 
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from "react-router-dom";
 
 import UserProfile from './UserProfile';
 
@@ -18,14 +17,14 @@ describe('UserProfile', () => {
   });  
   
   it('should render the component UserProfile without content case user is not logged yet', () => {
-    const wrapper = render(<Provider store={store}><UserProfile /></Provider>)
-    expect(wrapper.text()).toBe('Perfil do Usuário LogadoUsuário ainda não fez login.')
+    const { container } = render(<Provider store={store}><UserProfile /></Provider>)
+    expect(container.textContent).toBe('Perfil do Usuário LogadoUsuário ainda não fez login.')
   })
 
   it('should render the component UserProfile displaying the user data', () => {
     store = mockStore({ user: { user: mockUser } })
-    const wrapper = render(<Provider store={store}><UserProfile /></Provider>)
-    expect(wrapper.text()).toBe('Perfil do Usuário Logado Nome Carlos Eduardo Ferreiro Corrêa E-mail kadusjc1984@gmail.com')
+    const { container } = render(<Provider store={store}><UserProfile /></Provider>)
+    expect(container.textContent).toBe('Perfil do Usuário Logado Nome Carlos Eduardo Ferreiro Corrêa E-mail kadusjc1984@gmail.com')
   })
 
   

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'enzyme';
+import { render } from '@testing-library/react';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from "react-router-dom";
@@ -24,13 +24,13 @@ describe('ProductList', () => {
   });
 
   it('should render the ProductList empty when there are no products to display', () => {
-    const wrapper = render(<Provider store={store}><ProductList /></Provider>)
-    expect(wrapper.text()).toBe('Lista de Produtos')
+    const { container } = render(<Provider store={store}><ProductList /></Provider>)
+    expect(container.textContent).toBe('Lista de Produtos')
   })
 
   it('should render the ProductList component correctly when there is one or more products', () => {
     store = mockStore({ products: { products: mockProducts }, user: { user: [] }  })
-    const wrapper = render(<Provider store={store}><BrowserRouter><ProductList /></BrowserRouter></Provider>)
-    expect(wrapper.text()).toBe('Lista de Produtos Id: 1 Camisa 1 Detalhes Id: 2 Camisa 2 Detalhes')
+    const { container } = render(<Provider store={store}><BrowserRouter><ProductList /></BrowserRouter></Provider>)
+    expect(container.textContent).toBe('Lista de Produtos Id: 1 Camisa 1 Detalhes Id: 2 Camisa 2 Detalhes')
   })
 });
