@@ -10,9 +10,9 @@ const ProductItem = ({ product }) => {
   return (
     <Card className="card-small" style={{ width: '20rem' }}>
       <Card.Body>
-        <Card.Title>Id: {product.id}</Card.Title>
-        <Card.Title>{product.name}</Card.Title>
-        <Card.Text>{product.description}</Card.Text>
+        <Card.Title>&nbsp;Id: {product.id}</Card.Title>
+        <Card.Title>&nbsp;{product.name}</Card.Title>
+        <Card.Text>&nbsp;{product.description}</Card.Text>
         <Link to={`/produtos/${product.id}`}>
           <Button style={{margin: '2px'}} variant="primary">Detalhes</Button>
         </Link>
