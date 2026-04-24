@@ -15,6 +15,8 @@ import { setUser } from './redux/actions/userActions';
 import UserProfile from './containers/UserProfile';
 import QuotationApi from './service/quotation-api';
 
+import './App.css';
+
 const App = () => {
 
   const [quotation, setQuotation] = useState();
@@ -33,19 +35,19 @@ const App = () => {
   
   return (
     <Router>
-      <div>
+      <div className="App">
+        <Navbar userData={{ ...user}} quotation={{...quotation}}/>
         { user && user.name &&  
-          <Alert key="success" variant="success">
-            Você está logado na loja. Agora pode acessar o menu "Perfil do Usuário" e "Adicionar Produtos ao Carrinho".
+          <Alert className="app-alert" key="success" variant="success">
+            Você está logado! Acesse <strong>Perfil</strong> e adicione produtos ao <strong>Carrinho</strong>.
           </Alert>
         }
 
         {!user && 
-        <Alert key="warning" variant="warning">
-          Faça o seu Login primeiro 
+        <Alert className="app-alert" key="warning" variant="warning">
+          Faça o seu <strong>Login</strong> para começar a comprar
         </Alert>
        }
-        <Navbar userData={{ ...user}} quotation={{...quotation}}/>
         <div className="container">
           <div className="row">
             <div>
@@ -61,6 +63,9 @@ const App = () => {
             </div>
           </div>
         </div>
+        <footer className="app-footer">
+          React Store &mdash; Projeto do livro <a href="https://www.amazon.com.br/dp/B0CPDNP4KP" target="_blank" rel="noopener noreferrer">React.js - Aprenda praticando</a>
+        </footer>
       </div>
     </Router>
   );

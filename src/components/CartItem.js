@@ -21,9 +21,13 @@ const CartItem = ({ item }) => {
       ) : (
         <ListGroup>
             <ListGroup.Item className="listCard" key={item.id}>
-              <strong>Nome</strong> {item.name} - <strong>Preço</strong> ${item.price} - <strong>Qtd </strong>{item.qty} &nbsp;
-              <Button variant="danger" style={{margin: '10px'}} onClick={() => handleRemoveFromCart(item.id)}>
-                <CartX/>&nbsp;Remover&nbsp;
+              <div className="cart-item-info">
+                <span className="cart-item-name">{item.name}</span>
+                <span className="cart-item-price">R$ {item.price}</span>
+                <span className="cart-item-detail">Qtd: {item.qty}</span>
+              </div>
+              <Button variant="danger" onClick={() => handleRemoveFromCart(item.id)}>
+                <CartX/>&nbsp;Remover
               </Button>
             </ListGroup.Item>
          </ListGroup>
