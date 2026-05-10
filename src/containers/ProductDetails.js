@@ -18,16 +18,16 @@ const ProductDetails = () => {
 
   return (
     <div align="center">
-      <h2 className="page-title">Detalhes do Produto</h2>
+      <h2>Detalhes do Produto Id {product.id}</h2>
       
-      <Card className="card-medium card-details"> 
+      <Card className="card-medium card-details"  bg="red"> 
         <Card.Img variant="top" src={product.image} />
         <Card.Body>
           <Card.Title>
             <Card.Link href={product.url} target='_blank'>{product.name}</Card.Link>
           </Card.Title>
-          <Card.Text>{product.description}</Card.Text>
-          <div className="product-detail-price">R$ {product.price}</div>
+          <Card.Text>Descrição: {product.description}</Card.Text>
+          <Card.Text>Preço: ${product.price}</Card.Text>
           <AddToCartButton product={product}/>
         </Card.Body>
       </Card>

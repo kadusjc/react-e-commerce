@@ -13,50 +13,44 @@ const Login = ({ onLogin }) => {
   };
 
   return (
-    <div className="login-wrapper">
-      <div className="login-card">
-        <div className="login-header">
-          <div className="login-icon">&#128100;</div>
-          <h2>Bem-vindo</h2>
-          <p className="login-subtitle">Faça login para acessar sua conta</p>
-        </div>
-        <Form onSubmit={handleSubmit}>
-          <Form.Group controlId="username">
-            <Form.Label>Nome</Form.Label>
-            <Form.Control
-              className="userName"
-              type="text"
-              placeholder="Digite seu nome"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </Form.Group>
+    <div>
+      <h2>Login</h2>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group controlId="username">
+          <Form.Label>Username</Form.Label>
+          <Form.Control
+            className="userName"
+            type="text"
+            placeholder="Enter username"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </Form.Group>
 
-          <Form.Group controlId="email">
-            <Form.Label>E-mail</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Digite seu e-mail"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </Form.Group>
+        <Form.Group controlId="email">
+          <Form.Label>E-mail</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter e-mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </Form.Group>
 
-          <Form.Group controlId="password">
-            <Form.Label>Senha</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Digite sua senha"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Form.Group>
-          <br/>
-          <Button className="btn" variant="primary" type="submit">
-            Entrar
-          </Button>
-        </Form>
-      </div>
+        <Form.Group controlId="password">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder="Enter password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </Form.Group>
+        <br/>
+        <Button className="btn" variant="primary" type="submit">
+          Login
+        </Button>
+      </Form>
     </div>
   );
 };

@@ -8,18 +8,15 @@ import AddToCartButton from './AddToCartButton';
 const ProductItem = ({ product }) => {
  
   return (
-    <Card className="card-small">
-      <Card.Img variant="top" src={product.image} alt={product.name} />
+    <Card className="card-small" style={{ width: '20rem' }}>
       <Card.Body>
-        <Card.Title>{product.name}</Card.Title>
-        <div className="product-price">R$ {product.price}</div>
-        <Card.Text>{product.description}</Card.Text>
-        <div className="card-actions">
-          <Link to={`/produtos/${product.id}`}>
-            <Button variant="primary">Detalhes</Button>
-          </Link>
-          <AddToCartButton product={product}/>
-        </div>
+        <Card.Title>&nbsp;Id: {product.id}</Card.Title>
+        <Card.Title>&nbsp;{product.name}</Card.Title>
+        <Card.Text>&nbsp;{product.description}</Card.Text>
+        <Link to={`/produtos/${product.id}`}>
+          <Button style={{margin: '2px'}} variant="primary">Detalhes</Button>
+        </Link>
+        <AddToCartButton product={product}/>
       </Card.Body>
     </Card>
   );

@@ -1,16 +1,13 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Container, Alert } from 'react-bootstrap';
 
 const NotFound = () => {
   return (
-    <Container className="notfound-wrapper">
-      <h1>404</h1>
-      <p className="notfound-subtitle">Página não encontrada</p>
-      <p>O endereço que você digitou não existe ou foi removido.</p>
-      <Link to="/" className="btn btn-primary">
-        Voltar para Home
-      </Link>
+    <Container className="mt-4">
+      <Alert variant="danger">
+        <Alert.Heading>404 - Rota não existente</Alert.Heading>
+        <p>O endereço requisitado não possui uma página correspondente.</p>
+      </Alert>
     </Container>
   );
 };

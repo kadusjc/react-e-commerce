@@ -19,8 +19,8 @@ const AddToCartButton = ({ product }) => {
   return (
     <>
     { userProfile && userProfile.name && 
-      <Button variant="success" onClick={() => handleAddToCart(product)}>
-        <CartPlusFill/>&nbsp;Carrinho
+      <Button style={{margin: '2px'}} variant="secondary" onClick={() => handleAddToCart(product)}>
+        <CartPlusFill/>&nbsp;Adic. Carrinho
       </Button>
     }
     </>

@@ -7,11 +7,11 @@ const ProductList = () => {
   
   return (
     <div>
-      <div className="row" align="center"><h1 className="page-title">Lista de Produtos</h1></div>
-      <div className="product-grid">
+      <div className="row" align="center"><h1>Lista de Produtos</h1></div>
+      <div className="row">
       {listaProdutos && listaProdutos.map((product) => (
         <React.Fragment key={product.id}>
-          <ProductItem  product={product} />
+          <div className="col-md-3"><ProductItem  product={product} /></div>
         </React.Fragment>
       ))}
       </div>
